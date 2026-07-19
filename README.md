@@ -43,19 +43,19 @@ Data-intensive applications suffer from latency and power inefficiency caused by
 
 ## Background & Motivation
 
-Early IMC implementations used standard 6T SRAM cells, but their shared read/write path limits read stability and risks data corruption during simultaneous multi-cell access. 8T (and 8+T) SRAM topologies address this by adding a dedicated, isolated read port, enabling more robust in-memory logic execution — an approach demonstrated in prior work by Dong et al. and Rajput et al.
+Early IMC implementations used standard 6T SRAM cells, but their shared read/write path limits read stability and risks data corruption during simultaneous multi-cell access. 8T (and 8+T) SRAM topologies address this by adding a dedicated, isolated read port, enabling more robust in-memory logic execution, an approach demonstrated in prior work by Dong et al. and Rajput et al.
 
-However, most prior designs required **separate, dedicated sense amplifiers per logic function**, increasing area, complexity, and power. This project builds on the **Multi-Logic Sense Amplifier (MLSA)** concept (Chang & Chen) — a single sensing circuit that produces multiple logic outputs (OR/NOR, AND/NAND, XOR/XNOR) by tuning the reference voltage, reducing hardware overhead while preserving functional flexibility.
+However, most prior designs required **separate, dedicated sense amplifiers per logic function**, increasing area, complexity, and power. This project builds on the **Multi-Logic Sense Amplifier (MLSA)** concept (Chang & Chen), a single sensing circuit that produces multiple logic outputs (OR/NOR, AND/NAND, XOR/XNOR) by tuning the reference voltage, reducing hardware overhead while preserving functional flexibility.
 
 ## Design Methodology
 
 **1. 8T SRAM Cell Architecture**
-An 8-transistor cell (6T storage core + 2T isolated read port) was chosen to decouple read and write paths, enabling multiple wordlines to be activated simultaneously without disturbing stored data — a prerequisite for bitline-based logic sensing.
+An 8-transistor cell (6T storage core + 2T isolated read port) was chosen to decouple read and write paths, enabling multiple wordlines to be activated simultaneously without disturbing stored data, a prerequisite for bitline-based logic sensing.
 
 ![8T SRAM Cell](images/8T_SRAM_Cell.png)
 
 **2. Bitline-Based Logic Operation**
-Word lines corresponding to different memory cells are enabled simultaneously. The resulting discharge behavior on the read bitline (RBL) — which varies depending on the logic values stored in each activated cell is monitored and interpreted as a logic outcome.
+Word lines corresponding to different memory cells are enabled simultaneously. The resulting discharge behavior on the read bitline (RBL), which varies depending on the logic values stored in each activated cell is monitored and interpreted as a logic outcome.
 
 **3. Write-Back Operation**
 Computed logic results are routed back into the memory array via a controlled switching network, enabling a full compute-in-memory cycle without offloading data to external logic.
@@ -98,8 +98,8 @@ Following schematic verification, the 8T SRAM cell, MLSA, and supporting logic w
 **Read/Write Functionality**
 The 8T SRAM cell correctly performs read operations (RBL discharges based on stored data via the isolated read port) and write operations (data driven onto WBL and latched via the write wordline path).
 
-![Read Waveforms](READ_Operation_SRAM.png)
-![WRITE Waveforms](WRITE_Operation_SRAM.png)
+![Read Waveforms](simulations/READ_Operation_SRAM.png)
+![WRITE Waveforms](simulations/WRITE_Operation_SRAM.png)
 
 **Bitline Discharge Characterization**
 - Increasing the reference voltage accelerates RBL discharge; below the NMOS threshold voltage, discharge slows significantly, degrading sensing accuracy/speed.

@@ -1,6 +1,6 @@
 # 8T SRAM-Based In-Memory Computing Cell with Multi-Logic Sense Amplifier (MLSA)
 
-Design, simulation, and layout of an In-Memory Computing (IMC) architecture that performs Boolean logic operations (OR/NOR, AND/NAND, XOR/XNOR) directly within an 8-transistor SRAM array — implemented and verified in Cadence Virtuoso at 180nm CMOS.
+Design, simulation, and layout of an In-Memory Computing (IMC) architecture that performs Boolean logic operations (OR/NOR, AND/NAND, XOR/XNOR) directly within an 8-transistor SRAM array implemented and verified in Cadence Virtuoso at 180nm CMOS.
 
 ---
 
@@ -39,7 +39,7 @@ Data-intensive applications suffer from latency and power inefficiency caused by
 - Develop a sensing mechanism (sense amplifier + reference tuning) that can interpret bitline discharge as logic outputs
 - Implement Boolean operations (AND, OR, XOR, NAND, NOR, XNOR) using bitline discharge behavior across multiple activated wordlines
 - Verify all designs (schematic + layout) in Cadence Virtuoso at the 180nm node, using Spectre for simulation
-- Characterize performance — power, delay, PDP — and benchmark against a conventional sense-amplifier baseline
+- Characterize performance power, delay, PDP and benchmark against a conventional sense-amplifier baseline
 
 ## Background & Motivation
 
@@ -55,7 +55,7 @@ An 8-transistor cell (6T storage core + 2T isolated read port) was chosen to dec
 ![8T SRAM Cell](images/8T_SRAM_Cell.png)
 
 **2. Bitline-Based Logic Operation**
-Word lines corresponding to different memory cells are enabled simultaneously. The resulting discharge behavior on the read bitline (RBL) — which varies depending on the logic values stored in each activated cell — is monitored and interpreted as a logic outcome.
+Word lines corresponding to different memory cells are enabled simultaneously. The resulting discharge behavior on the read bitline (RBL) — which varies depending on the logic values stored in each activated cell is monitored and interpreted as a logic outcome.
 
 **3. Write-Back Operation**
 Computed logic results are routed back into the memory array via a controlled switching network, enabling a full compute-in-memory cycle without offloading data to external logic.
@@ -139,7 +139,7 @@ Process-variation robustness was verified via Monte Carlo simulation (threshold 
 
 ## Key Learnings
 
-- Isolating read/write paths in SRAM cells is essential for enabling reliable multi-wordline access without data corruption — a foundational requirement for any bitline-based IMC scheme
+- Isolating read/write paths in SRAM cells is essential for enabling reliable multi-wordline access without data corruption a foundational requirement for any bitline-based IMC scheme
 - Reference-voltage tuning in sense amplifiers directly trades off sensing speed against reliability, and must be carefully characterized rather than assumed
 - Consolidating multiple logic functions into a single sense amplifier (MLSA) meaningfully reduces area and power compared to using dedicated sense amps per function
 

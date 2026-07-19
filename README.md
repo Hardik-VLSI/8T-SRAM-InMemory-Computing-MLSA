@@ -16,7 +16,6 @@ Design, simulation, and layout of an In-Memory Computing (IMC) architecture that
 - [Performance Analysis](#performance-analysis)
 - [Key Learnings](#key-learnings)
 - [Challenges](#challenges)
-- [Future Work](#future-work)
 - [Tools Used](#tools-used)
 - [References](#references)
 
@@ -150,12 +149,6 @@ Process-variation robustness was verified via Monte Carlo simulation (threshold 
 - Tuning dual reference voltages (Vref_High, Vref_Low) precisely enough to reliably separate multiple logic states from a single sensing window
 - Balancing sense-amplifier enable timing against bitline discharge dynamics across varying stored-data combinations
 
-## Future Work
-
-- Extend the MLSA to support full arithmetic operations (addition, subtraction) beyond Boolean logic
-- Scale the design to a larger memory array to evaluate area/power trends at higher densities
-- Port the design to a more advanced CMOS node and re-characterize performance
-- Explore radiation/aging robustness for the sense amplifier under extended process-corner analysis
 
 ## Tools Used
 

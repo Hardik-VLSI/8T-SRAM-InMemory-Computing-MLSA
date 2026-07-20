@@ -117,7 +117,7 @@ The 8T SRAM cell correctly performs read operations (RBL discharges based on sto
 **Monte Carlo Analysis**
 Process-variation robustness was verified via Monte Carlo simulation (threshold voltage and carrier mobility varied randomly across 200 iterations), confirming stable performance across process corners.
 
-![Monte Carlo Results](simulations/Monte-Carlo_01-10.png.png)
+![Monte Carlo Results](simulations/Monte-Carlo_01-10.png)
 
 ## Performance Analysis
 

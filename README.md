@@ -152,8 +152,8 @@ Process-variation robustness was verified via Monte Carlo simulation (threshold 
 
 ## Tools Used
 
-- **Cadence Virtuoso** — schematic capture, layout design
-- **Spectre Simulator** — transient, DC, and Monte Carlo simulation
+- **Cadence Virtuoso:** schematic capture, layout design
+- **Spectre Simulator:** transient, DC, and Monte Carlo simulation
 - **Technology Node:** 180nm CMOS
 - **Verification:** DRC, LVS
 
